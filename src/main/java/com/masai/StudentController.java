@@ -31,7 +31,10 @@ public class StudentController {
 	public ResponseEntity<Student> saveStudentHandler(@RequestBody Student student){
 		
 		
+		
 		Student savedStudent= sRepo.save(student);
+		
+		System.out.println("inside post..."+savedStudent);
 		
 		return new ResponseEntity<>(savedStudent, HttpStatus.OK);
 	}
@@ -49,6 +52,8 @@ public class StudentController {
 	
 	@GetMapping("/students")
 	public List<Student> getAllStudents(){
+		
+		System.out.println("get all");
 		return sRepo.findAll();
 	}
 	
