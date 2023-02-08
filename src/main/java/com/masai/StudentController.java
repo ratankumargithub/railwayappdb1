@@ -27,7 +27,7 @@ public class StudentController {
 
 
 
-	@PostMapping("/students")
+	@PostMapping("/st1")
 	public ResponseEntity<Student> saveStudentHandler(@RequestBody Student student){
 		
 		
