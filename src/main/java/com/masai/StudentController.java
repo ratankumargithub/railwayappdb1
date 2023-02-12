@@ -49,7 +49,15 @@ public class StudentController {
 	}
 
 	
+	@GetMapping({"/", "/home"})
+	public String getHome() {
+		return "Home screen Get Request";
+	}
 	
+	@PostMapping("/post/data")
+	public String postHome() {
+		return "Post Successfull";
+	}
 
 
 	@PostMapping("/st1")
