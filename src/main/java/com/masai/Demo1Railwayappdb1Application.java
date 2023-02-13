@@ -1,14 +1,16 @@
 package com.masai;
 
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.servers.Server;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
 
+@OpenAPIDefinition( 
+	    servers = {
+	       @Server(url = "/", description = "Default Server URL")
+	    }
+	) 
 @SpringBootApplication
 public class Demo1Railwayappdb1Application {
 
@@ -17,10 +19,4 @@ public class Demo1Railwayappdb1Application {
 	}
 
 	
-	@Bean
-	public OpenAPI customOpenAPI() {
-	    Server server = new Server();
-	    server.setUrl("https://testapp/api");
-	    return new OpenAPI().servers(List.of(server));
-	}
 }
