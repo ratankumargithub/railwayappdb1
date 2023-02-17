@@ -55,10 +55,7 @@ public class StudentController {
 		return "Home screen Get Request";
 	}
 	
-	@PostMapping("/post/data")
-	public String postHome() {
-		return "Post Successfull";
-	}
+	
 
 
 	@PostMapping("/students")
@@ -68,7 +65,7 @@ public class StudentController {
 		
 		Student savedStudent= sRepo.save(student);
 		
-		System.out.println("inside post..."+savedStudent);
+		
 		
 		return new ResponseEntity<>(savedStudent, HttpStatus.OK);
 	}
@@ -80,14 +77,13 @@ public class StudentController {
 		Student student= sRepo.findById(roll).get();
 		
 		
-		return new ResponseEntity<Student>(student,HttpStatus.OK);
+		return new ResponseEntity<>(student,HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/students")
 	public List<Student> getAllStudents(){
 		
-		System.out.println("get all");
 		return sRepo.findAll();
 	}
 	
