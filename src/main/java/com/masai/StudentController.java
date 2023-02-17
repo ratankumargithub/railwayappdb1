@@ -29,6 +29,7 @@ public class StudentController {
 	
 	
 	
+	
 	@PostMapping("/post1")
 	public String postReq() {
 		return "from Post";
@@ -88,6 +89,16 @@ public class StudentController {
 	}
 	
 	
+	@DeleteMapping("/students/{roll}")
+	public ResponseEntity<Student> deleteStudentHandler(@PathVariable Integer roll ){
+		
+		Student student = sRepo.findById(roll).get();
+		
+		sRepo.delete(student);
+		
+		return new ResponseEntity<>(student,HttpStatus.OK);
+		
+	}
 	
 	
 	
